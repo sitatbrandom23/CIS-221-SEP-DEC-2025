@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Store</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; background:#f9f9f9;}
+    header, footer {background:#222; color:#fff; text-align:center; padding:15px;}
+    header h1 {color:#ff4081; margin:0;}
+    nav {background:#ff4081; text-align:center; padding:10px;}
+    nav a {color:#fff; margin:0 10px; text-decoration:none;}
+    section {padding:20px;}
+    .products {display:flex; gap:15px; justify-content:center;}
+    .card {background:#fff; padding:10px; border-radius:8px; text-align:center; width:150px;}
+    .card img {width:100%; border-radius:8px;}
+    table {width:100%; border-collapse:collapse; margin-top:15px; background:#fff;}
+    th,td {border:1px solid #ddd; padding:8px; text-align:center;}
+    th {background:#ff4081; color:#fff;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fashion Store</h1>
+    <p>Trendy • Affordable • Stylish</p>
+  </header>
+
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#offers">Offers</a>
+    <a href="#benefits">Why Us</a>
+  </nav>
+
+  <section id="products">
+    <h2>Our Collection</h2>
+    <div class="products">
+      <div class="card"><img src="https://via.placeholder.com/150x200.png?text=Dress"><p>Dress - $49</p></div>
+      <div class="card"><img src="https://via.placeholder.com/150x200.png?text=Shoes"><p>Shoes - $39</p></div>
+      <div class="card"><img src="https://via.placeholder.com/150x200.png?text=Jacket"><p>Jacket - $59</p></div>
+    </div>
+  </section>
+
+  <section id="offers">
+    <h2>Sale Offers</h2>
+    <table>
+      <tr><th>Item</th><th>Discount</th><th>New Price</th></tr>
+      <tr><td>Dress</td><td>20%</td><td>$39</td></tr>
+      <tr><td>Shoes</td><td>15%</td><td>$33</td></tr>
+      <tr><td>Jacket</td><td>25%</td><td>$44</td></tr>
+    </table>
+  </section>
+
+  <section id="benefits">
+    <h2>Why Shop Here?</h2>
+    <ul>
+      <li>✔ Free delivery on orders $50+</li>
+      <li>✔ 24/7 Support</li>
+      <li>✔ Secure payment</li>
+      <li>✔ Fresh fashion weekly</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Fashion Store</p>
+  </footer>
+</body>
+</html>
