@@ -1,0 +1,142 @@
+import java.util.*;
+
+class BankAccount {
+    private int accNo;
+    private String holder;
+    private double balance;
+
+    // Constructor
+    BankAccount(int accNo, String holder, double balance) {
+        this.accNo = accNo;
+        this.holder = holder;
+        this.balance = balance;
+    }
+
+    void setAccNo(int accNo) { this.accNo = accNo; }
+    void setHolder(String holder) { this.holder = holder; }
+    double getBalance() { return balance; }
+
+    void deposit(double amt) {
+        if (amt > 0) {
+            balance += amt;
+            System.out.println("Deposited: " + amt);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    void withdraw(double amt) {
+        if (amt > 0 && amt <= balance) {
+            balance -= amt;
+            System.out.println("Withdrew: " + amt);
+        } else {
+            System.out.println("Insufficient funds or invalid amount.");
+        }
+    }
+
+    void show() {
+        System.out.println("Account No: " + accNo);
+        System.out.println("Holder: " + holder);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class Student {
+    int admno, eng, math, sci, total;
+    String sname;
+
+    void takeData(Scanner sc) {
+        System.out.print("Enter Admission No: ");
+        admno = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        System.out.print("Enter Student Name: ");
+        sname = sc.nextLine();
+
+        System.out.print("Enter English Marks: ");
+        eng = sc.nextInt();
+        System.out.print("Enter Math Marks: ");
+        math = sc.nextInt();
+        System.out.print("Enter Science Marks: ");
+        sci = sc.nextInt();
+
+        ctotal();
+    }
+
+    void ctotal() {
+        total = eng + math + sci;
+    }
+
+    void showData() {
+        System.out.println("Admission No: " + admno);
+        System.out.println("Name: " + sname);
+        System.out.println("English: " + eng);
+        System.out.println("Math: " + math);
+        System.out.println("Science: " + sci);
+        System.out.println("Total Marks: " + total);
+    }
+}
+
+public class MainProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\n===== MENU =====");
+            System.out.println("1. Bank Account Operations");
+            System.out.println("2. Bata Shoe Discount");
+            System.out.println("3. Student Information");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Bank Account
+                    BankAccount acc = new BankAccount(1001, "John Doe", 5000);
+                    acc.show();
+                    System.out.print("Enter deposit amount: ");
+                    double dep = sc.nextDouble();
+                    acc.deposit(dep);
+                    System.out.print("Enter withdraw amount: ");
+                    double wd = sc.nextDouble();
+                    acc.withdraw(wd);
+                    acc.show();
+                    break;
+
+                case 2:
+                    // Bata Shoe Discount
+                    System.out.print("Enter price of first pair: ");
+                    double price1 = sc.nextDouble();
+                    System.out.print("Enter price of second pair: ");
+                    double price2 = sc.nextDouble();
+
+                    if (price2 <= price1) {
+                        price2 -= 0.3 * price2; // 30% discount
+                        System.out.println("30% discount applied on second pair!");
+                    }
+
+                    double total = price1 + price2;
+                    System.out.println("Total amount to pay: " + total);
+                    break;
+
+                case 3:
+                    // Student Data
+                    Student s = new Student();
+                    s.takeData(sc);
+                    s.showData();
+                    break;
+
+                case 4:
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        } while (choice != 4);
+
+        sc.close();
+    }
+}
